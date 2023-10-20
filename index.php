@@ -30,14 +30,17 @@
 
         if (!$_POST["email"]){
             $error .= "an email is required.<br>";
+            
         }
         
         if (!$_POST["password"]){
             $error .= "a password is required.<br>";
+            
         }
 
         if ($error != ""){
             $error = "<p>There were some errors in your form!</p>" . $error;
+            
         }
         else{
             $email = mysqli_real_escape_string($link, $_POST["email"]);
@@ -50,6 +53,7 @@
 
                 if (mysqli_num_rows($result) > 0) {
                     $error = "This email is already in use.<br>";
+                    
                 }
                 else {
 
@@ -62,6 +66,7 @@
                     if(!mysqli_query($link, $query)){
                         $error .= "<p> Could not sign up - Please try again later.</p>";
                         $error .= "<p>" . mysqli_error($link) . "</p>";
+                        
                     }
                     else{
                         
@@ -99,10 +104,12 @@
                     }
                     else{
                         $error = "invalid email/password.";
+                        
                     }
                 }
                 else{
                     $error = "invalid email/password.";
+                    
                 }
             }
 
@@ -119,9 +126,6 @@
 
 
 
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -129,14 +133,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daily Diary</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <style>
-        .forms{
-      
-            margin: 50px;
+        body{
+            background-image: url("bg-img.jpg");
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed;
+            background-size: cover;
+            box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+            margin: 0px;
+            padding: 0px;
+        }
 
+        .heading{
+            margin-top: 16vh;
+            font-size: 8vw;
+            font-family: 'Dancing Script', cursive;
+            color: black;
+            text-shadow: 2px 2px white;
+        }
+
+        .forms{
+            margin: 50px;
             max-width: 500px;
             padding: 10px;
+            border: 1px white solid;
+            
+            padding: 3vh 2vw;
+            border-radius: 10%;
+            box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.2);
+            
+        }
+        .error{
+            color:white;
+            font-size: 1vw;
+            max-width: 40vw;
+            height: 5vh;
+            /* background-color: rgba(228, 27, 27, 0.2); */
+            text-align: center;
+           
         }
     </style>
 
@@ -145,8 +183,8 @@
 <body>
 
 
-    <div class="container text-center" >
-        <h1>Daily Diary</h1>
+    <div class="container text-center heading" >
+        <span>Daily Diary</span>
     </div>
 
 
@@ -197,8 +235,14 @@
 
     
 
-    <div id = "error"><?php echo $error; ?> </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <div class = "error container text-center" id = "err"><?php echo $error; ?> </div>
+
+    
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></>
+
+   
 
 </body>
 </html>
