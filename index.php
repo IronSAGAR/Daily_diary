@@ -21,12 +21,13 @@
         // $servename = "localhost";
         // $password = "mysqlpass@654";
         
-        $link =  new mysqli("localhost", "Celestial69", "mysqlpass@654", "daily_diary");
+        // $link =  new mysqli("localhost", "Celestial69", "mysqlpass@654", "daily_diary");
 
-        if ($link->connect_error) {
-            die("Connection failed: ". $link->connect_error);
-        }
+        // if ($link->connect_error) {
+        //     die("Connection failed: ". $link->connect_error);
+        // }
         
+        include('connection.php');
 
         if (!$_POST["email"]){
             $error .= "an email is required.<br>";
