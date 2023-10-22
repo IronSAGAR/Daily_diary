@@ -55,26 +55,59 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fasthand&family=Noto+Sans:ital,wght@1,300&family=Playfair+Display:ital,wght@1,400;1,700&family=Poppins&family=Qwitcher+Grypen:wght@700&display=swap" rel="stylesheet">
 
+    <style>
+        body{
+            background-image: url("img/diary2-img.jpg");
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed;
+            background-size: cover;
+            
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        .head{
+            margin-bottom: 5vh;
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            font-size: 400%;
+            background-color: rgba(0,0,0,0.5); 
+            width: 100vw;
+            padding: 1vh 10vw;
+        }
+       
+        
 
-
+    </style>
 
 </head>
 <body>
 
-    <div class="navbar">
-        <h2>Your Diary</h2>
+    <div class="navbar head">
+        <span>Your Diary</span>
         <a href="index.php?logout=1">
-                <button class="btn btn-success-outline">Logout</button>
+                <button class="btn btn-outline-primary">Logout</button>
         </a>
     </div>
 
-    <form method="post">
-        <textarea name="content" id="content" class = "form-control" rows="10">
-            <?php echo $diaryContent; ?>
-        </textarea>
-        <input type="submit" name ="submit" value="submit">
-    </form>
+    <div class="container">
+        <form method="post">
+            <div class = "mb-3">
+                <textarea name="content" id="content" class = "form-control" rows="10">
+                    <?php echo $diaryContent; ?>
+                </textarea>
+            </div>
+            <div class="mb-3">
+                <input type="submit" name ="submit" value="submit" class="btn btn-primary">
+            </div>
+        </form>
+    </div>
+    
 
 
 
