@@ -40,7 +40,7 @@
         }
 
         if ($error != ""){
-            $error = "<p>There were some errors in your form!</p>" . $error;
+            $error = "There were some errors in your form!<br>" . $error;
             
         }
         else{
@@ -139,7 +139,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <style>
         body{
-            background-image: url("bg-img.jpg");
+            background-image: url("img/bg-img.jpg");
             background-repeat: no-repeat;
             background-position: center center;
             background-attachment: fixed;
@@ -172,7 +172,7 @@
             color:white;
             font-size: 1vw;
             max-width: 40vw;
-            height: 5vh;
+ 
             /* background-color: rgba(228, 27, 27, 0.2); */
             text-align: center;
            
@@ -236,7 +236,11 @@
 
     
 
-    <div class = "error container text-center" id = "err"><?php echo $error; ?> </div>
+    <div class = "error container text-center" id = "err" <?php if($error != ""){?> style = "background-color : rgba(255,0,0,0.4)"; <?php } ?>> 
+        <?php 
+            echo $error;
+         ?> 
+    </div>
 
     
 
